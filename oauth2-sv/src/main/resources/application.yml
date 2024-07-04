@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: oauth2-sv
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123
+    url: jdbc:postgresql://localhost:5433/sso
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23liU7kwB3Ids2Qtry
+            client-secret: 94e9e22fda29d8e7c86ad93336d346a411171eeb
+            redirect-uri: http://localhost:8080/login/oauth2/code/github
+            scope: read:user,user:email
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+
+jwt:
+  secret: your_jwt_secret
+  refresh-secret: your_jwt_refresh_secret
